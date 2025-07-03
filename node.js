@@ -59,6 +59,16 @@ async function menu() {
         await rl.question("Pressione Enter para continuar...");
         break;
 
+      case 3:
+        if (!matriz[linhas]) 
+            matriz[linhas] = [];
+
+        linhas = parseInt(await rl.question("Qual a linha do valor? "));
+        colunas = parseInt(await rl.question("Qual a coluna do valor? "));
+
+        matriz[linhas][colunas] = parseFloat(await rl.question("Qual o novo valor a ser adicionado? "));
+        break;
+
       case 8:
         console.log("Saindo...");
         return 0;
