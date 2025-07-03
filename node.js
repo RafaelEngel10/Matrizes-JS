@@ -17,7 +17,6 @@ async function menu() {
   let colunas = 0;
 
   do {
-    console.clear();
     console.log("===== Matrizes =====");
     console.log("1. Ler uma matriz   ");
     console.log("2. Mostrar matriz   ");
@@ -69,9 +68,38 @@ async function menu() {
         matriz[linhas][colunas] = parseFloat(await rl.question("Qual o novo valor a ser adicionado? "));
         break;
 
+      case 4:
+        let acm = 0;
+        const j = await rl.question("Qual linha que você quer somar? ");
+        for (i=0;i<colunas;i++) {
+            acm = acm + matriz[j][i];
+        }
+        console.log("A soma das colunas da linha " + linhas + " é igual a: " + acm);
+        break;
+
+      case 5:
+        let acum = 0;
+        const i = await rl.question("Qual a coluna que você quer somar? ");
+        for (let j=0;j<linhas;j++) {
+            acum = acum + matriz[j][i];
+        }
+        console.log("A soma das linhas da coluna " + colunas + " é igual a: " + acum);
+        break;
+
+      case 6: 
+        let acumulador = 0;
+        for (let i=0;i<linhas;i++) {
+            for (let j=0;j<colunas;j++) {
+                acumulador = acumulador + matriz[i][j];
+            }
+        }
+        console.log("A soma de todos os valores da matriz é igual a: " + acumulador);
+        break;
+
       case 8:
         console.log("Saindo...");
-        return 0;
+        option = 8;
+        break;
 
       default:
         console.log("Opção inválida.");
